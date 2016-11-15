@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "maren-serif";
+    src: url("serif.eot");
+    src: url("serif.eot?#iefix") format("embedded-opentype"),
+         url("serif.woff2") format("woff2"),
+         url("serif.woff") format("woff"),
+         url("serif.ttf") format("ttf"),
+         url("serif.svg#NimbusRomanDOT-Regular") format("svg");
+    font-style: normal;
+    font-weight: regular;
+}

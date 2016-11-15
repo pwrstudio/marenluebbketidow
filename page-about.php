@@ -3,24 +3,44 @@
 <?php $CATEGORY = "about";?>
 
 <div class='column left'>
-  <?php // Output menu ?>
-  <?php $args = array('post_type' => 'post', 'category_name' => $CATEGORY, 'posts_per_page' => -1); ?>
-  <?php $about = new WP_Query( $args ); ?>
-  <?php while ( $about->have_posts() ) : $about->the_post(); ?>
-    <?php get_template_part('menu-item'); ?>
-  <?php endwhile; ?>
-  <?php wp_reset_query(); ?>
+
+  <?php // Links ?>
+  <?php if(have_rows('links')):?>
+    <div class='menu-header'>links</div>
+    <?php while ( have_rows('links') ) : the_row(); ?>
+      <a href='<?php echo get_sub_field( 'url' );?>' target=_blank class='menu-item'>
+        <p>
+          <?php echo get_sub_field( 'title' );?>
+        </p>
+      </a>
+    <?php endwhile; ?>
+  <?php endif; ?>
+
+  <?php // Downloads ?>
+  <?php if(have_rows('downloads')):?>
+    <div class='menu-header'>downloads</div>
+    <?php while ( have_rows('downloads') ) : the_row(); ?>
+      <?php $url = get_field('url'); ?>
+      <a href='<?php echo $url['url'];?>' download class='menu-item'>
+        <p>
+          <?php echo get_sub_field( 'title' );?>
+        </p>
+      </a>
+    <?php endwhile; ?>
+  <?php endif; ?>
+
+  <?php // Contact ?>
+  <div class='menu-header'>contact</div>
+  <div class='menu-item'>
+    <?php echo get_field('contact');?>
+  </div>
+
 </div>
 
 <div class='column right'>
-  <?php // Output content ?>
-  <?php $args = array('post_type' => 'post', 'category_name' => $CATEGORY, 'posts_per_page' => -1); ?>
-  <?php $about = new WP_Query( $args ); ?>
-  <?php while ( $about->have_posts() ) : $about->the_post(); ?>
-    <?php get_template_part('content'); ?>
-  <?php endwhile; ?>
-  <?php wp_reset_query(); ?>
-
+  <div class='single-post'>
+    <?php echo get_field('main_content');?>
+  </div>
 </div>
 
 <?php get_footer(); ?>

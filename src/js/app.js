@@ -1,33 +1,22 @@
 // app.js
-
 (function () {
   'use strict'
-
-  // Require jQuery
-  global.$ = require('jquery')
-
-  // var shared = require('./shared')
-
-  // require('swiper')
-  // require('fullpage.js')
-
-  // Modernizr tests
-  // require('browsernizr/test/webgl')
-  // require('browsernizr/test/workers/webworkers')
-  // require('browsernizr/test/webrtc/peerconnection')
-  // require('browsernizr/test/storage/localstorage')
-  // require('browsernizr/test/audio/webaudio')
-  // require('browsernizr/test/websockets')
-  // var Modernizr = require('browsernizr')
-
-  global.$(function () {
-    console.log('READY')
-
-    // var swiper = new Swiper('.swiper-container', {
-    //   speed: 1000
-    //   autoplay: 40
-    // })
-
-    // $('#fullpage').fullpage()
+  const $ = require('jquery')
+  $(function () {
+    let topMenuItem = $('.menu-item:first-child')
+    window.location.hash = topMenuItem.attr('href')
+    topMenuItem.addClass('active-section-link')
+    $(document).on('click', '.menu-item', function () {
+      $('.active-section-link').removeClass('active-section-link')
+      $(this).addClass('active-section-link')
+    })
+    $(document).on('click', '.search-button', function () {
+      $('#search').addClass('active-search')
+      $('input[name=s]').focus()
+    })
+    $(document).on('blur', 'input[name=s]', function () {
+      $('#search').removeClass('active-search')
+      $('input[name=s]').val('')
+    })
   })
 }())

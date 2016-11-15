@@ -14,7 +14,7 @@
   <?php get_template_part('template_parts/meta_info'); ?>
 
 
-  <title><?php wp_title(" | ", TRUE, "RIGHT"); ?></title>
+  <title>Maren Lübbke-Tidow</title>
 
   <?php wp_head(); ?>
 
@@ -22,15 +22,18 @@
 
 <body <?php body_class(); ?>>
 
-  <div id='search' class='search'>search</div>
+  <div id='search' class='search'>
+    <span class='search-button'>search</span>
+    <?php get_search_form();?>
+  </div>
 
   <header>
     <div id='title'><strong>Maren Lübbke-Tidow</strong></div>
     <div id='main-menu'>
-    <a href='about' class='main-menu-item'>about</div>
-    <a href='texts' class='main-menu-item'>texts</div>
-    <a href='editorial' class='main-menu-item'>editorial</div>
-    <a href='curatorial' class='main-menu-item'>curatorial</div>
-    <a href='various' class='main-menu-item'>various</div>
+    <a href='about' class='main-menu-item'>about</a>
+    <a href='texts' class='main-menu-item'>texts</a>
+    <a href='editorial' class='main-menu-item'>editorial</a>
+    <a href='curatorial' class='main-menu-item'>curatorial</a>
+    <a href='various' class='main-menu-item'>various</a>
     </div>
   </header>

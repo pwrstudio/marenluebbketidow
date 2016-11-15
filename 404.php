@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
-  <h1>404</h1>
+<div class='column left'></div>
+
+<div class='column right'>
+  <div class='content'>Page not found.</div>
+</div>
 
 <?php get_footer(); ?>

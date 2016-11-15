@@ -4,18 +4,21 @@
  * Enqueue scripts and styles.
  */
 function pwrstudio_template_scripts() {
-  
+
     // Enque font style file
-    //    wp_enqueue_style( 'univers_light', get_template_directory_uri() . '/fonts/UniversLTCYR-45Light.css');
+    wp_enqueue_style( 'serif', get_template_directory_uri() . '/fonts/serif.css');
+    wp_enqueue_style( 'bold-serif', get_template_directory_uri() . '/fonts/serif-bold.css');
+    wp_enqueue_style( 'italic-serif', get_template_directory_uri() . '/fonts/serif-italic.css');
+    wp_enqueue_style( 'bold-italic-serif', get_template_directory_uri() . '/fonts/serif-bold-italic.css');
     wp_enqueue_style( 'pwrstudio_template-style', get_template_directory_uri() . '/style.css');
-        
+
     if (!is_admin()) {
-      
+
         wp_deregister_script('jquery');
-      
+
         wp_register_script( 'pwr_scripts', get_template_directory_uri() . '/app.min.js', false, '1', true);
         wp_enqueue_script('pwr_scripts');
-                        
+
     }
 
 }
@@ -162,9 +165,18 @@ function my_custom_columns($column)
 	global $post;
 	if($column == 'thumbnail')
 	{
-        $image = get_field('image', $post->ID);
+    $image = get_field('image', $post->ID);
 		echo '<img src="' . $image[sizes][thumbnail] . '">';
 	}
 }
 add_action("manage_posts_custom_column", "my_custom_columns");
 add_filter("manage_edit-post_columns", "my_page_columns");
+
+
+function filter_ptags_on_images($content)
+{
+    return preg_replace('/<p>(\s*)(<img .* \/>)(\s*)<\/p>/iU', '\2', $content);
+}
+
+// we want it to be run after the autop stuff... 10 is default.
+add_filter('the_content', 'filter_ptags_on_images');

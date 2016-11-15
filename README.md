@@ -31,13 +31,13 @@
 - plumber
 - notify
 
-*** 
+***
 
 Requires node.js, npm and gulp to be installed.
 
 Clone into theme directory.
 
-Install dependencies: 
+Install dependencies:
 
 `npm install`
 
