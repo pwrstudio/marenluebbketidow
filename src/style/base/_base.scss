@@ -134,8 +134,9 @@ img {
 
 header {
   position: fixed;
-  top: 1.5 * $line-height;
-  background: rgba(255,255,255,0.5);
+  top: 0;
+  padding-top: 1.5 * $line-height;
+  background: rgba(255,255,255,0.8);
   z-index: 1000;
   width: 400px;
   @include screen-size('small') {
@@ -153,6 +154,8 @@ header {
 
 .column {
   position: absolute;
+  overflow-x: auto;
+  @include hide-scroll;
   &.left {
     left: 0;
     width: 360px;
@@ -174,8 +177,6 @@ header {
     @include screen-size('small') {
       display: none;
     }
-    overflow-x: auto;
-    @include hide-scroll;
   }
   &.about-column {
     @include screen-size('small') {
@@ -183,6 +184,8 @@ header {
       width: 100%;
       height: auto;
       margin-right: 0px;
+      margin-top: 3 * $line-height;
+      margin-bottom: 3 * $line-height;
       position: static;
       float: left;
     }
@@ -301,5 +304,11 @@ p:first-child {
     @include screen-size('small') {
       display: block;
     }
+  }
+}
+
+.about-meta {
+  @include screen-size('small') {
+    float: right !important;
   }
 }

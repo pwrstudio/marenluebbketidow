@@ -6,7 +6,7 @@
     if (window.location.hash) {
       $('[href="' + window.location.hash + '"]').addClass('active-section-link')
       $('body').addClass('lightbox')
-    } else {
+    } else if(!$('body').hasClass('page-about')) {
       let topMenuItem = $('.menu-item').first()
       window.location.hash = topMenuItem.attr('href')
       topMenuItem.addClass('active-section-link')

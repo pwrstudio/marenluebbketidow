@@ -2,7 +2,14 @@
 
 <?php $CATEGORY = "about";?>
 
-<div class='column left'>
+
+<div class='column right about-column'>
+  <div class='single-post'>
+    <?php echo get_field('main_content');?>
+  </div>
+</div>
+
+<div class='column left about-meta'>
 
   <?php // Links ?>
   <?php if(have_rows('links')):?>
@@ -37,10 +44,5 @@
 
 </div>
 
-<div class='column right about-column'>
-  <div class='single-post'>
-    <?php echo get_field('main_content');?>
-  </div>
-</div>
 
 <?php get_footer(); ?>
