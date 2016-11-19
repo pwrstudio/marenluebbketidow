@@ -20,7 +20,6 @@
     <?php get_template_part('template_parts/content'); ?>
   <?php endwhile; ?>
   <?php wp_reset_query(); ?>
-
 </div>
 
 <?php get_footer(); ?>

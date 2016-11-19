@@ -27,6 +27,8 @@
     <?php get_search_form();?>
   </div>
 
+  <div id='close' class='close'>close</div>
+
   <header>
     <div id='title'><strong>Maren Lübbke-Tidow</strong></div>
     <div id='main-menu'>

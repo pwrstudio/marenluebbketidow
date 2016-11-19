@@ -8,9 +8,9 @@
   <?php if(have_rows('links')):?>
     <div class='menu-header'>links</div>
     <?php while ( have_rows('links') ) : the_row(); ?>
-      <a href='<?php echo get_sub_field( 'url' );?>' target=_blank class='menu-item'>
+      <a href='<?php echo get_sub_field('url');?>' target=_blank class='about-list-item'>
         <p>
-          <?php echo get_sub_field( 'title' );?>
+          <?php echo get_sub_field('title');?>
         </p>
       </a>
     <?php endwhile; ?>
@@ -20,8 +20,8 @@
   <?php if(have_rows('downloads')):?>
     <div class='menu-header'>downloads</div>
     <?php while ( have_rows('downloads') ) : the_row(); ?>
-      <?php $url = get_field('url'); ?>
-      <a href='<?php echo $url['url'];?>' download class='menu-item'>
+      <?php $file = get_sub_field('file'); ?>
+      <a href='<?php echo $file['url'];?>' download class='about-list-item'>
         <p>
           <?php echo get_sub_field( 'title' );?>
         </p>
@@ -31,13 +31,13 @@
 
   <?php // Contact ?>
   <div class='menu-header'>contact</div>
-  <div class='menu-item'>
-    <?php echo get_field('contact');?>
-  </div>
+  <p>
+    <a href="mailto:<?php echo get_field('email');?>" class='about-list-item'>email</a>
+  </p>
 
 </div>
 
-<div class='column right'>
+<div class='column right about-column'>
   <div class='single-post'>
     <?php echo get_field('main_content');?>
   </div>

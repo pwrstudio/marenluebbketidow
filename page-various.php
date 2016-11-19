@@ -3,6 +3,9 @@
 <?php $CATEGORY = "various";?>
 
 <div class='column left'>
+  <?php // Get all sub-categories of 'various' ?>
+  <?php // Output sub-category header ?>
+  <?php // Output sub-category posts ?>
   <?php // Output menu ?>
   <?php $args = array('post_type' => 'post', 'category_name' => $CATEGORY, 'posts_per_page' => -1); ?>
   <?php $about = new WP_Query( $args ); ?>
@@ -13,6 +16,9 @@
 </div>
 
 <div class='column right'>
+  <?php // Get all sub-categories of 'various' ?>
+  <?php // Output sub-category header ?>
+  <?php // Output sub-category posts ?>
   <?php // Output content ?>
   <?php $args = array('post_type' => 'post', 'category_name' => $CATEGORY, 'posts_per_page' => -1); ?>
   <?php $about = new WP_Query( $args ); ?>

@@ -124,18 +124,18 @@ add_filter('upload_mimes', 'cc_mime_types');
 add_theme_support( 'post-thumbnails' );
 
 // Add categories as classes on single pages
-add_filter('body_class','add_category_to_single');
-function add_category_to_single($classes, $class) {
-	if (is_single() ) {
-		global $post;
-		foreach((get_the_category($post->ID)) as $category) {
-			// add category slug to the $classes array
-			$classes[] = $category->category_nicename;
-		}
-	}
-	// return the $classes array
-	return $classes;
-}
+// add_filter('body_class','add_category_to_single');
+// function add_category_to_single($classes, $class) {
+// 	if (is_single() ) {
+// 		global $post;
+// 		foreach((get_the_category($post->ID)) as $category) {
+// 			// add category slug to the $classes array
+// 			$classes[] = $category->category_nicename;
+// 		}
+// 	}
+// 	// return the $classes array
+// 	return $classes;
+// }
 
 //Page Slug Body Class
 function add_slug_body_class( $classes ) {
@@ -175,7 +175,7 @@ add_filter("manage_edit-post_columns", "my_page_columns");
 
 function filter_ptags_on_images($content)
 {
-    return preg_replace('/<p>(\s*)(<img .* \/>)(\s*)<\/p>/iU', '\2', $content);
+  return preg_replace('/<p>(\s*)(<img .* \/>)(\s*)<\/p>/iU', '\2', $content);
 }
 
 // we want it to be run after the autop stuff... 10 is default.
