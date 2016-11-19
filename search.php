@@ -3,7 +3,7 @@
 <div class='column left'>
 
   <div class='menu-item'>
-    <strong>search for “<?php echo get_search_query();?>”: <?php echo $wp_query->found_posts;?> results
+    <strong>search for “<?php echo get_search_query();?>”: <?php echo $wp_query->found_posts;?> results</strong>
   </div>
 
   <?php while ( have_posts() ) : the_post(); ?>

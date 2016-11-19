@@ -137,6 +137,7 @@ header {
   top: 1.5 * $line-height;
   background: rgba(255,255,255,0.5);
   z-index: 1000;
+  width: 400px;
   @include screen-size('small') {
     width: 100%;
   }
@@ -152,12 +153,11 @@ header {
 
 .column {
   position: absolute;
-
   &.left {
     left: 0;
-    width: 30%;
+    width: 360px;
     height: 100vh;
-    margin-right: 60px;
+    margin-right: 40px;
     @include screen-size('small') {
       width: 100%;
       height: auto;
@@ -168,8 +168,8 @@ header {
     padding-top: 5 * $line-height;
   }
   &.right {
-    left: calc(30% + 60px);
-    width: calc(70% - 60px);
+    left: 400px;
+    width: calc(100% - 400px);
     height: 100vh;
     @include screen-size('small') {
       display: none;

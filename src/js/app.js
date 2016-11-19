@@ -7,7 +7,7 @@
       $('[href="' + window.location.hash + '"]').addClass('active-section-link')
       $('body').addClass('lightbox')
     } else {
-      let topMenuItem = $('.menu-item:first-child')
+      let topMenuItem = $('.menu-item').first()
       window.location.hash = topMenuItem.attr('href')
       topMenuItem.addClass('active-section-link')
     }
