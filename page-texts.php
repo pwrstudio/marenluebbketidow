@@ -3,23 +3,31 @@
 <?php $CATEGORY = "texts";?>
 
 <div class='column left'>
-  <?php // Output menu ?>
-  <?php $args = array('post_type' => 'post', 'category_name' => $CATEGORY, 'posts_per_page' => -1); ?>
-  <?php $about = new WP_Query( $args ); ?>
-  <?php while ( $about->have_posts() ) : $about->the_post(); ?>
-    <?php get_template_part('template_parts/menu-item'); ?>
-  <?php endwhile; ?>
-  <?php wp_reset_query(); ?>
+  <div class='inner'>
+
+    <?php // Output menu ?>
+    <?php $args = array('post_type' => 'post', 'category_name' => $CATEGORY, 'posts_per_page' => -1); ?>
+    <?php $about = new WP_Query( $args ); ?>
+    <?php while ( $about->have_posts() ) : $about->the_post(); ?>
+      <?php get_template_part('template_parts/menu-item'); ?>
+    <?php endwhile; ?>
+    <?php wp_reset_query(); ?>
+
+  </div>
+
 </div>
 
 <div class='column right'>
-  <?php // Output content ?>
-  <?php $args = array('post_type' => 'post', 'category_name' => $CATEGORY, 'posts_per_page' => -1); ?>
-  <?php $about = new WP_Query( $args ); ?>
-  <?php while ( $about->have_posts() ) : $about->the_post(); ?>
-    <?php get_template_part('template_parts/content'); ?>
-  <?php endwhile; ?>
-  <?php wp_reset_query(); ?>
+  <div class='inner'>
+
+    <?php $args = array('post_type' => 'post', 'category_name' => $CATEGORY, 'posts_per_page' => -1); ?>
+    <?php $about = new WP_Query( $args ); ?>
+    <?php while ( $about->have_posts() ) : $about->the_post(); ?>
+      <?php get_template_part('template_parts/content'); ?>
+    <?php endwhile; ?>
+    <?php wp_reset_query(); ?>
+
+  </div>
 </div>
 
 <?php get_footer(); ?>

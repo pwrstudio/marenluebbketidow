@@ -79,16 +79,11 @@ h2 {
 }
 
 img {
+  width: 70ch;
   max-width: 100%;
   height: auto;
   margin-top: $line-height;
   margin-bottom: $line-height;
-}
-
-.content {
-  p:first-child {
-    text-indent: 0;
-  }
 }
 
 #search {
@@ -149,13 +144,15 @@ header {
   font-family: 'maren-serif', $sans-serif-stack;
   &:hover {
     font-family: 'maren-serif-bold', $sans-serif-stack;
+    letter-spacing: 0.15px;
  }
 }
 
 .column {
   position: absolute;
-  overflow-x: auto;
+  // overflow-x: auto;
   @include hide-scroll;
+  overflow: hidden;
   &.left {
     left: 0;
     width: 360px;
@@ -168,7 +165,9 @@ header {
       position: static;
       float: left;
     }
-    padding-top: 5 * $line-height;
+    .inner {
+      padding-top: 5 * $line-height;
+    }
   }
   &.right {
     left: 400px;
@@ -183,7 +182,6 @@ header {
       display: block;
       width: 100%;
       height: auto;
-      margin-right: 0px;
       margin-top: 3 * $line-height;
       margin-bottom: 3 * $line-height;
       position: static;
@@ -191,12 +189,19 @@ header {
     }
 
   }
+  .inner {
+    margin-right: -16px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+  }
 }
 
 .menu-item {
   display: block;
   margin-bottom: $line-height;
   font-family: 'maren-serif', $serif-stack !important;
+  padding-right: 16px;
   p {
     text-indent: 0;
     &::before {
@@ -244,14 +249,16 @@ header {
   display: none;
   padding-top: 5 * $line-height + 6px;
   padding-bottom: 5 * $line-height;
+  padding-right: 16px;
 }
 
 .single-post {
-  padding-top: 5 * $line-height + 6px;
+  padding-top: 5 * $line-height + 6px;;
   @include screen-size('small') {
     padding-top: 2 * $line-height;
   }
   margin-bottom: 50 * $line-height;
+  padding-right: 16px;
 }
 
 p:first-child {
@@ -266,6 +273,7 @@ p:first-child {
   display: block;
   margin-bottom: $line-height;
   font-family: 'maren-serif', $serif-stack !important;
+  padding-right: 16px;
 }
 
 #close {
@@ -310,5 +318,11 @@ p:first-child {
 .about-meta {
   @include screen-size('small') {
     float: right !important;
+  }
+}
+
+.content, .single-post {
+  p:first-child {
+    text-indent: 0;
   }
 }

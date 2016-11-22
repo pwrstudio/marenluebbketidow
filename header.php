@@ -30,7 +30,7 @@
   <div id='close' class='close'>close</div>
 
   <header>
-    <div id='title'><strong>Maren Lübbke-Tidow</strong></div>
+    <a href='<?php echo get_home_url(); ?>' id='title'><strong>Maren Lübbke-Tidow</strong></a>
     <div id='main-menu'>
     <a href='about' class='main-menu-item'>about</a>
     <a href='texts' class='main-menu-item'>texts</a>

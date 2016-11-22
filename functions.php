@@ -179,4 +179,11 @@ function filter_ptags_on_images($content)
 }
 
 // we want it to be run after the autop stuff... 10 is default.
-add_filter('the_content', 'filter_ptags_on_images');
+add_filter('acf_the_content', 'filter_ptags_on_images');
+
+function so_26068464( $content )
+{
+  return strip_tags( $content, '<img><p><strong><i><em><a>' );
+}
+
+add_filter( 'acf_the_content', 'so_26068464' );
