@@ -52,7 +52,8 @@ a {
     color: $main-color;
   }
   &:hover {
-    color: $main-color;
+    color: $background-color;
+    background: $main-color;
   }
   &:active {
     color: $main-color;
@@ -65,6 +66,9 @@ p {
     width: 100%;
   }
   text-indent: $indent;
+  @include screen-size('small') {
+    text-indent: $small-indent;
+  }
 }
 
 pre {
@@ -141,10 +145,14 @@ header {
 
 .main-menu-item {
   margin-left: $indent;
-  font-family: 'maren-serif', $sans-serif-stack;
+  @include screen-size('small') {
+    margin-left: $small-indent;
+  }
+  font-family: 'maren-serif-bold', $sans-serif-stack;
+  letter-spacing: 0.01em;
   &:hover {
-    font-family: 'maren-serif-bold', $sans-serif-stack;
-    letter-spacing: 0.15px;
+    color: $background-color;
+    background: $main-color;
  }
 }
 
@@ -198,29 +206,38 @@ header {
 }
 
 .menu-item {
-  display: block;
+  display: inline-block;
   margin-bottom: $line-height;
   font-family: 'maren-serif', $serif-stack !important;
   padding-right: 16px;
   p {
-    text-indent: 0;
+    text-indent: $indent;
+    @include screen-size('small') {
+      text-indent: $small-indent;
+    }
+    position: relative;
     &::before {
       content: "";
-      position: relative;
-      top:3px;
+      left: 0;
+      top: 0;
+      position: absolute;
       text-align: left;
       font-size:15px;
-      height: 18px;
+      height: 17px;
+      width: 17px;
       width: $indent;
-      overflow: hidden;
-      display: inline-block;
+      @include screen-size('small') {
+        width: $small-indent;
+      }
+      // overflow: hidden;
+      display: block;
       font-weight: bold;
     }
   }
   &:hover, &.active-section-link {
     p {
-      text-indent: 0;
       &::before {
+        text-indent: 0;
         content: "●";
       }
     }
@@ -247,17 +264,17 @@ header {
 
 .post-item {
   display: none;
-  padding-top: 5 * $line-height + 6px;
+  padding-top: 5 * $line-height;
   padding-bottom: 5 * $line-height;
   padding-right: 16px;
 }
 
 .single-post {
-  padding-top: 5 * $line-height + 6px;;
+  padding-top: 5 * $line-height;
   @include screen-size('small') {
     padding-top: 2 * $line-height;
   }
-  margin-bottom: 50 * $line-height;
+  margin-bottom: 5 * $line-height;
   padding-right: 16px;
 }
 
@@ -270,7 +287,7 @@ p:first-child {
 }
 
 .about-list-item {
-  display: block;
+  display: inline-block;
   margin-bottom: $line-height;
   font-family: 'maren-serif', $serif-stack !important;
   padding-right: 16px;
