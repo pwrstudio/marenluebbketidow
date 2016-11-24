@@ -14,7 +14,7 @@
   <?php get_template_part('template_parts/meta_info'); ?>
 
 
-  <title>Maren Lübbke-Tidow</title>
+  <title>Maren Luebbke-Tidow</title>
 
   <?php wp_head(); ?>
 
@@ -30,12 +30,28 @@
   <div id='close' class='close'>close</div>
 
   <header>
-    <a href='<?php echo get_home_url(); ?>' id='title'><strong>Maren Lübbke-Tidow</strong></a>
+    <a href='<?php echo get_home_url(); ?>' id='title'><strong>Maren Luebbke-Tidow</strong></a>
     <div id='main-menu'>
-    <a href='about' class='main-menu-item'>about</a>
-    <a href='texts' class='main-menu-item'>texts</a>
-    <a href='editorial' class='main-menu-item'>editorial</a>
-    <a href='curatorial' class='main-menu-item'>curatorial</a>
-    <a href='various' class='main-menu-item'>various</a>
+
+      <div class='main-menu-item about'>
+        <a href='about'>about</a>
+      </div>
+
+      <div class='main-menu-item texts'>
+        <a href='texts'>texts</a>
+      </div>
+
+      <div class='main-menu-item editorial'>
+        <a href='editorial'>editorial</a>
+      </div>
+
+      <div class='main-menu-item curatorial'>
+        <a href='curatorial'>curatorial</a>
+      </div>
+
+      <div class='main-menu-item various'>
+        <a href='various'>various</a>
+      </div>
+
     </div>
   </header>

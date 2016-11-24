@@ -52,8 +52,8 @@ a {
     color: $main-color;
   }
   &:hover {
-    color: $background-color;
-    background: $main-color;
+    color: $main-color;
+    // text-decoration: underline;
   }
   &:active {
     color: $main-color;
@@ -144,16 +144,48 @@ header {
 }
 
 .main-menu-item {
-  margin-left: $indent;
-  @include screen-size('small') {
-    margin-left: $small-indent;
-  }
-  font-family: 'maren-serif-bold', $sans-serif-stack;
+  display: inline-block;;
+  font-family: 'maren-serif', $serif-stack;
   letter-spacing: 0.01em;
-  &:hover {
-    color: $background-color;
-    background: $main-color;
- }
+  a {
+    padding-left: $indent;
+    font-family: 'maren-serif', $serif-stack;
+    @include screen-size('small') {
+      padding-left: $small-indent;
+    }
+    position: relative;
+    &::before {
+      content: "";
+      // left: 4px;
+      top: -4px;
+      position: absolute;
+      text-align: left;
+      font-size:12px;
+      height: 14px;
+      width: 14px;
+      width: $indent;
+      @include screen-size('small') {
+        width: $small-indent;
+      }
+      // overflow: hidden;
+      display: block;
+      font-weight: bold;
+    }
+    &:hover, &.active{
+      // text-decoration: underline;
+      // border-bottom: 1px solid black;
+      &::before {
+        content: "●";
+      }
+      @include screen-size('small') {
+        // text-decoration: underline;
+        text-indent: 0;
+        &::before {
+          content: "●";
+        }
+      }
+    }
+  }
 }
 
 .column {
@@ -215,16 +247,22 @@ header {
     @include screen-size('small') {
       text-indent: $small-indent;
     }
-    position: relative;
+    &:first-child {
+      text-indent: $indent !important;
+      @include screen-size('small') {
+        text-indent: $small-indent !important;
+      }
+    }
+      position: relative;
     &::before {
       content: "";
       left: 0;
-      top: 0;
+      top: -1px;
       position: absolute;
       text-align: left;
-      font-size:15px;
-      height: 17px;
-      width: 17px;
+      font-size:12px;
+      height: 14px;
+      width: 14px;
       width: $indent;
       @include screen-size('small') {
         width: $small-indent;
@@ -235,7 +273,7 @@ header {
     }
   }
   &:hover, &.active-section-link {
-    p {
+        p {
       &::before {
         text-indent: 0;
         content: "●";

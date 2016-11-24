@@ -18,7 +18,7 @@
     <?php if(have_rows('links')):?>
       <div class='menu-header'>links</div>
       <?php while ( have_rows('links') ) : the_row(); ?>
-        <a href='<?php echo get_sub_field('url');?>' target=_blank class='about-list-item'>
+        <a href='<?php echo get_sub_field('url');?>' target=_blank class='menu-item'>
           <p>
             <?php echo get_sub_field('title');?>
           </p>
@@ -31,7 +31,7 @@
       <div class='menu-header'>downloads</div>
       <?php while ( have_rows('downloads') ) : the_row(); ?>
         <?php $file = get_sub_field('file'); ?>
-        <a href='<?php echo $file['url'];?>' download class='about-list-item'>
+        <a href='<?php echo $file['url'];?>' download class='menu-item'>
           <p>
             <?php echo get_sub_field( 'title' );?>
           </p>
@@ -41,9 +41,9 @@
 
     <?php // Contact ?>
     <div class='menu-header'>contact</div>
-    <p>
-      <a href="mailto:<?php echo get_field('email');?>" class='about-list-item'>email</a>
-    </p>
+    <a href="mailto:<?php echo get_field('email');?>" class='menu-item'>
+      <p>email</p>
+    </a>
 
   </div>
 

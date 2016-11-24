@@ -11,6 +11,17 @@
       window.location.hash = topMenuItem.attr('href')
       topMenuItem.addClass('active-section-link')
     }
+    if($('body').hasClass('page-about')) {
+      $('.main-menu-item.about a').addClass('active')
+    } else if($('body').hasClass('page-texts')) {
+      $('.main-menu-item.texts a').addClass('active')
+    } else if($('body').hasClass('page-editorial')) {
+      $('.main-menu-item.editorial a').addClass('active')
+    } else if($('body').hasClass('page-curatorial')) {
+      $('.main-menu-item.curatorial a').addClass('active')
+    } else if($('body').hasClass('page-various')) {
+      $('.main-menu-item.various a').addClass('active')
+    }
     $(document).on('click', '.menu-item', function () {
       $('.active-section-link').removeClass('active-section-link')
       $(this).addClass('active-section-link')
