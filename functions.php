@@ -154,8 +154,8 @@ function my_page_columns($columns)
 {
 	$columns = array(
 		'cb'	 	=> '<input type="checkbox" />',
-		'thumbnail'	=>	'Image',
-		'title' 	=> 'Title',
+    'title' 	=> 'Short title',
+		'full_title' 	=> 'Full title',
 		'categories'	=>	'Categories',
 	);
 	return $columns;
@@ -163,10 +163,8 @@ function my_page_columns($columns)
 function my_custom_columns($column)
 {
 	global $post;
-	if($column == 'thumbnail')
-	{
-    $image = get_field('image', $post->ID);
-		echo '<img src="' . $image[sizes][thumbnail] . '">';
+	if($column == 'full_title') {
+		echo get_field('full_title');
 	}
 }
 add_action("manage_posts_custom_column", "my_custom_columns");
@@ -187,3 +185,11 @@ function so_26068464( $content )
 }
 
 add_filter( 'acf_the_content', 'so_26068464' );
+
+function custom_image_size() {
+    // Set default values for the upload media box
+    update_option('image_default_align', 'none' );
+    update_option('image_default_size', 'large' );
+
+}
+add_action('after_setup_theme', 'custom_image_size');

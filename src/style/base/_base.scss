@@ -19,6 +19,9 @@ body {
   background: $background-color;
   color: $main-color;
   font-size: $font-size;
+  @include screen-size('small') {
+    font-size: $font-size - 1px;
+  }
   line-height: $line-height;
   font-family: 'maren-serif', $sans-serif-stack;
   max-width: 1200px;
@@ -38,16 +41,21 @@ i, em {
 strong {
   font-weight: bold;
   font-family: 'maren-serif-bold', $serif-stack;
+  letter-spacing: 0.01em;
   i, em {
     font-style: italic;
     font-family: 'maren-serif-bold-italic', $serif-stack;
+    letter-spacing: 0.01em;
+
   }
 }
 
 a {
   color: $main-color;
   text-decoration: none;
-  font-family: 'maren-serif-bold';
+  font-family: 'maren-serif', $sans-serif-stack;
+  display: inline-block;
+  // padding-left: $indent;
   &:visited {
     color: $main-color;
   }
@@ -115,7 +123,6 @@ img {
     border: none;
     border-bottom: 1px solid black;
     font-family: 'maren-serif', $sans-serif-stack;
-    font-size: $font-size;
     display: none;
     height: $line-height;
     line-height: $line-height;
@@ -135,56 +142,21 @@ header {
   position: fixed;
   top: 0;
   padding-top: 1.5 * $line-height;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.9);
   z-index: 1000;
   width: 400px;
+  padding-bottom: 19px;
+  box-shadow: -20px 0px 20px 5px white;
   @include screen-size('small') {
     width: 100%;
+    box-shadow: 0px 0px 20px 5px white;
   }
 }
 
-.main-menu-item {
-  display: inline-block;;
-  font-family: 'maren-serif', $serif-stack;
-  letter-spacing: 0.01em;
-  a {
-    padding-left: $indent;
-    font-family: 'maren-serif', $serif-stack;
-    @include screen-size('small') {
-      padding-left: $small-indent;
-    }
-    position: relative;
-    &::before {
-      content: "";
-      // left: 4px;
-      top: -4px;
-      position: absolute;
-      text-align: left;
-      font-size:12px;
-      height: 14px;
-      width: 14px;
-      width: $indent;
-      @include screen-size('small') {
-        width: $small-indent;
-      }
-      // overflow: hidden;
-      display: block;
-      font-weight: bold;
-    }
-    &:hover, &.active{
-      // text-decoration: underline;
-      // border-bottom: 1px solid black;
-      &::before {
-        content: "●";
-      }
-      @include screen-size('small') {
-        // text-decoration: underline;
-        text-indent: 0;
-        &::before {
-          content: "●";
-        }
-      }
-    }
+.curatorial {
+  a{
+    // padding-left: $indent + 2px;
+    margin-left: 1px;
   }
 }
 
@@ -237,8 +209,65 @@ header {
   }
 }
 
+.main-menu-item {
+  display: inline-block;
+  font-family: 'maren-serif', $serif-stack !important;
+  p {
+    text-indent: $indent;
+    @include screen-size('small') {
+      text-indent: $small-indent;
+    }
+    position: relative;
+    &::before {
+      content: "";
+      left: 0;
+      top: -1px;
+      position: absolute;
+      text-align: center;
+      font-size:12px;
+      height: 14px;
+      width: 14px;
+      width: $indent;
+      @include screen-size('small') {
+        width: $small-indent;
+      }
+      display: block;
+      font-weight: bold;
+      letter-spacing: 0.01em;
+    }
+  }
+  &:first-child {
+    p {
+      &::before {
+        text-align: left;
+      }
+      text-indent: $indent !important;
+      @include screen-size('small') {
+        text-indent: $small-indent !important;
+      }
+    }
+  }
+  &:hover, &.active-section-link {
+    p {
+      &::before {
+        text-indent: 0;
+        content: "●";
+      }
+    }
+    @include screen-size('small') {
+      p {
+        // text-indent: 0;
+        &::before {
+          content: "";
+        }
+      }
+    }
+  }
+}
+
 .menu-item {
   display: inline-block;
+  width: 100%;
   margin-bottom: $line-height;
   font-family: 'maren-serif', $serif-stack !important;
   padding-right: 16px;
@@ -270,6 +299,8 @@ header {
       // overflow: hidden;
       display: block;
       font-weight: bold;
+      letter-spacing: 0.01em;
+
     }
   }
   &:hover, &.active-section-link {
@@ -294,6 +325,7 @@ header {
   display: block;
   font-family: 'maren-serif-bold', $serif-stack;
   margin-bottom: $line-height;
+  letter-spacing: 0.01em;
 }
 
 *:target {
@@ -305,6 +337,32 @@ header {
   padding-top: 5 * $line-height;
   padding-bottom: 5 * $line-height;
   padding-right: 16px;
+  a {
+    padding-left: $indent;
+    position: relative;
+    &::before {
+      content: "";
+      left: 0;
+      top: -1px;
+      position: absolute;
+      text-align: left;
+      font-size:12px;
+      height: 14px;
+      width: 14px;
+      width: $indent;
+      @include screen-size('small') {
+        width: $small-indent;
+      }
+      display: block;
+      font-weight: bold;
+      letter-spacing: 0.01em;
+    }
+    &:hover {
+      &::before {
+        content: "●";
+      }
+    }
+  }
 }
 
 .single-post {
@@ -331,16 +389,39 @@ p:first-child {
   padding-right: 16px;
 }
 
+// #close {
+//   position: fixed;
+//   display: none;
+//   right: $global-padding;
+//   top: 2 * $line-height;
+//   z-index: 1000;
+//   cursor: pointer;
+//   &:hover {
+//     font-family: 'maren-serif-bold', $sans-serif-stack;
+//     letter-spacing: 0.01em;
+//  }
+// }
+
 #close {
-  position: fixed;
   display: none;
-  right: $global-padding;
-  top: 2 * $line-height;
+  position: fixed;
+  top: 0;
+  padding-top: 1.5 * $line-height;
+  background: rgba(255,255,255,0.9);
   z-index: 1000;
+  width: 400px;
+  text-align: right;
+  padding-bottom: 19px;
+  position: relative;
   cursor: pointer;
-  &:hover {
-    font-family: 'maren-serif-bold', $sans-serif-stack;
- }
+  box-shadow: -20px 0px 20px 5px white;
+  @include screen-size('small') {
+    width: 100%;
+    box-shadow: 0px 0px 20px 5px white;
+  }
+  span {
+
+  }
 }
 
 .lightbox {
@@ -371,6 +452,9 @@ p:first-child {
 }
 
 .about-meta {
+  .inner {
+    padding-top: 0;
+  }
   @include screen-size('small') {
     float: right !important;
   }
