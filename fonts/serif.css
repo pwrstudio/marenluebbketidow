@@ -5,7 +5,7 @@
          url("serif.woff2") format("woff2"),
          url("serif.woff") format("woff"),
          url("serif.ttf") format("ttf"),
-         url("serif.svg#NimbusRomanDOT-Regular") format("svg");
+         url("serif.svg#marenserif") format("svg");
     font-style: normal;
-    font-weight: regular;
+    font-weight: 300;
 }

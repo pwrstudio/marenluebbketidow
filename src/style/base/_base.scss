@@ -23,7 +23,7 @@ body {
     font-size: $font-size - 1px;
   }
   line-height: $line-height;
-  font-family: 'maren-serif', $sans-serif-stack;
+  font-family: 'maren-serif', $serif-stack;
   max-width: 1200px;
   position: relative;
   overflow: hidden;
@@ -145,7 +145,8 @@ header {
   background: rgba(255,255,255,0.95);
   z-index: 1000;
   width: 400px;
-  padding-bottom: 19px;
+  // padding-bottom: 19px;
+  padding-bottom: 10px;
   box-shadow: -20px 0px 20px 15px white;
   @include screen-size('small') {
     width: 100%;
@@ -256,7 +257,7 @@ header {
     p {
       &::before {
         text-indent: 0;
-        content: "●";
+        content: "＋";
       }
     }
     @include screen-size('small') {
@@ -312,7 +313,7 @@ header {
         p {
       &::before {
         text-indent: 0;
-        content: "●";
+        content: "＋";
       }
     }
     @include screen-size('small') {
@@ -350,7 +351,7 @@ header {
     text-indent: $indent;
     position: relative;
     display: inline-block;
-    color: #aaaaaa;
+    color: $grey;
     &::before {
       content: "";
       left: -14px;
@@ -371,7 +372,7 @@ header {
     &:hover {
       color: $main-color;
       &::before {
-        content: "●";
+        content: "＋";
       }
     }
   }
@@ -479,15 +480,19 @@ p:first-child {
 }
 
 .external {
-  color: #aaaaaa !important;
+  color: $grey !important;
   &:active {
-    color: #aaaaaa !important;
+    color: $grey !important;
   }
   &:visited {
-    color: #aaaaaa !important;
+    color: $grey !important;
   }
 
   &:hover {
     color: $main-color !important;
   }
+}
+
+img + p {
+  text-indent: 0;
 }
