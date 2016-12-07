@@ -419,7 +419,7 @@ p:first-child {
   display: none;
   position: fixed;
   top: 0;
-  padding-top: 1.5 * $line-height;
+  padding-top: 1 * $line-height;
   background: rgba(255,255,255,0.9);
   z-index: 1000;
   width: 400px;
@@ -494,5 +494,21 @@ p:first-child {
 }
 
 img + p {
+  text-indent: 0;
+}
+
+.spacer + p {
+  text-indent: 0;
+}
+
+h1 + p {
+  text-indent: 0;
+}
+
+h2 + p {
+  text-indent: 0;
+}
+
+h3 + p {
   text-indent: 0;
 }

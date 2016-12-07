@@ -176,8 +176,16 @@ function filter_ptags_on_images($content)
   return preg_replace('/<p>(\s*)(<img .* \/>)(\s*)<\/p>/iU', '\2', $content);
 }
 
+function filter_space($content)
+{
+  return str_replace('<p>&nbsp;</p>', '<p class="spacer">&nbsp</p>', $content);
+  // return $content;
+}
+
+
 // we want it to be run after the autop stuff... 10 is default.
 add_filter('acf_the_content', 'filter_ptags_on_images');
+add_filter('acf_the_content', 'filter_space');
 
 function so_26068464( $content )
 {

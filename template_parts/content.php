@@ -1,7 +1,7 @@
 <div id='<?php echo get_post_field( 'post_name', get_post() );?>' class='post-item'>
-  <h2>
-    <strong><?php echo get_field('full_title');?></strong>
-  </h2>
+  <!-- <h2>
+    <strong><?php // echo get_field('full_title');?></strong>
+  </h2> -->
   <div class='content'>
     <?php echo get_field('main_content');?>
   </div>
