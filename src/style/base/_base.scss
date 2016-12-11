@@ -275,6 +275,7 @@ header {
   display: inline-block;
   width: 100%;
   margin-bottom: $line-height;
+  margin-bottom: 14px;
   font-family: 'maren-serif', $serif-stack !important;
   padding-right: 16px;
   p {
@@ -342,7 +343,7 @@ header {
   display: none;
   padding-top: 5 * $line-height;
   @include screen-size('small') {
-    padding-top: 4 * $line-height;
+    padding-top: 3 * $line-height;
   }
   padding-bottom: 5 * $line-height;
   padding-right: 16px;
@@ -419,18 +420,18 @@ p:first-child {
   display: none;
   position: fixed;
   top: 0;
-  padding-top: 1 * $line-height;
-  background: rgba(255,255,255,0.9);
+  padding-top: 0.5 * $line-height;
+  background: rgba(255,255,255,0.95);
   z-index: 1000;
   width: 400px;
   text-align: right;
-  padding-bottom: 19px;
+  padding-bottom:  0.5 * $line-height;
   position: relative;
   cursor: pointer;
   box-shadow: -20px 0px 20px 5px white;
   @include screen-size('small') {
     width: 100%;
-    box-shadow: 0px 0px 20px 5px white;
+    box-shadow: 0px 0px 10px 5px white;
   }
   span {
 
