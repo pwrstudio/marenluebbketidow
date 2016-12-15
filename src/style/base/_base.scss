@@ -122,6 +122,10 @@ img {
     outline: none;
     border: none;
     border-bottom: 1px solid black;
+    font-size: $font-size;
+    @include screen-size('small') {
+      font-size: $font-size - 1px;
+    }
     font-family: 'maren-serif', $serif-stack;
     display: none;
     height: $line-height;
@@ -180,6 +184,13 @@ header {
     }
     .inner {
       padding-top: 5 * $line-height;
+      // @include screen-size('small') {
+      //   padding-top: 4 * $line-height;
+      // }
+      padding-bottom: 60px;
+      @include screen-size('small') {
+        padding-top: 0px;
+      }
     }
   }
   &.right {
@@ -197,6 +208,10 @@ header {
       height: auto;
       margin-top: 3 * $line-height;
       margin-bottom: 3 * $line-height;
+      @include screen-size('small') {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
       position: static;
       float: left;
     }
@@ -382,11 +397,11 @@ header {
 
 .single-post {
   padding-top: 5 * $line-height;
-  @include screen-size('small') {
-    padding-top: 2 * $line-height;
-  }
   margin-bottom: 5 * $line-height;
   padding-right: 16px;
+   @include screen-size('small') {
+      margin-bottom: 2 * $line-height;
+    }
 }
 
 p:first-child {
